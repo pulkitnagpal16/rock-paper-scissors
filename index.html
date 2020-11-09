@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+    </style>
+    
+    <script>
+        
+        alert("Welcome to Rock, Paper or Scissors. One game is 5 rounds. Game on:");
+        game();
+
+        function game(){
+            let round = 0;
+
+            while(round < 5){
+                alert(playRound(computerPlay(),userPlay()));
+                round++;
+            }
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection === computerSelection) {
+                return 'Tie!';
+            } else {
+            if (playerSelection === 'rock' && computerSelection === 'paper') {
+                return 'Computer wins!';
+            } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                return 'Player wins!';
+            } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+                return 'Player wins!';
+            } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+                return 'Computer wins!';
+            } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+                return 'Computer wins!';
+            } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                return 'Player wins!';
+            }
+        }
+    }
+
+
+        function computerPlay(){
+            const weapon = ['rock','paper','scissors'];
+            return weapon[Math.floor(Math.random() * weapon.length)];
+        }
+
+        function userPlay(){
+            let userWeapon;
+
+            while(true){
+                if (!userWeapon){
+                    userWeapon = prompt("CHoose your weapon: (Rock, Paper or Scissors:","");
+                } else{
+                    userWeapon = userWeapon.toLowerCase();
+                    if (userWeapon === "rock" || userWeapon === "paper" || userWeapon === "scissors"){
+                        return userWeapon;
+                        } else{
+                            userWeapon = prompt("Choose your weapon: (Rock, Paper or Scissors:","");
+                        }
+                    }             
+                }
+            }
+    </script>
+
+
+</body>
+</html>
